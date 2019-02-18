@@ -12,11 +12,11 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
@@ -63,7 +63,7 @@ function (_React$Component) {
     _classCallCheck(this, Board);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Board).call(this, props));
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_assertThisInitialized(_this)));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     _this.state = {
       squares: Array(9).fill(null),
       mark: 'X'
@@ -120,10 +120,19 @@ var Game =
 function (_React$Component2) {
   _inherits(Game, _React$Component2);
 
-  function Game() {
+  function Game(props) {
+    var _this3;
+
     _classCallCheck(this, Game);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Game).apply(this, arguments));
+    _this3 = _possibleConstructorReturn(this, _getPrototypeOf(Game).call(this, props));
+    _this3.state = {
+      history: [{
+        squares: Array(9).fill(null),
+        mark: 'X'
+      }]
+    };
+    return _this3;
   }
 
   _createClass(Game, [{
